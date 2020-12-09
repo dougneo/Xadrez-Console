@@ -8,6 +8,7 @@ namespace Xadrez_Console
     {
         static void Main(string[] args)
         {
+            try { 
             Tabuleiro tab = new Tabuleiro(8, 8);
             //Peças Pretas
             tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
@@ -49,7 +50,11 @@ namespace Xadrez_Console
 
 
             Tela.imprimirTabuleiro(tab);
-
+            }
+            catch (TabuleiroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadLine();
         }
     }
